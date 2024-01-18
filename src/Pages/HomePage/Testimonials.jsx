@@ -4,20 +4,21 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Testimonials = () => {
     const [reviews,setreviews]=useState([]);
+    const axiosPublic=useAxiosPublic();
    
     useEffect(()=>{
-        axios.get('http://localhost:5000/review')
+        axiosPublic.get('/review')
             .then(res=>{
                 console.log(res.data);
                 setreviews(res.data);
             })
-    },[])
+    },[axiosPublic])
 
     return (
         <section>
