@@ -36,7 +36,8 @@ const SignUp = () => {
                                     Swal.fire({
                                         title: "Good job!",
                                         text: "You have successfully sign up",
-                                        icon: "success"
+                                        icon: "success",
+                                        timer:'1000'
                                       });                          
                                       navigate('/');
                                 }

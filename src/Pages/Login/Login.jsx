@@ -35,7 +35,8 @@ const Login = () => {
                 Swal.fire({
                     title: "Good job!",
                     text: "You have successfully login",
-                    icon: "success"
+                    icon: "success",
+                    timer:'1000'
                   }); 
                 navigate(from,{replace:true}) ;               
                
@@ -60,7 +61,8 @@ const Login = () => {
                 Swal.fire({
                     title: "Error!",
                     text: "Captcha is not correct",
-                    icon: "error"
+                    icon: "error",
+                    timer:'1000'
                   }); 
             }
     }

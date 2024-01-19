@@ -3,10 +3,12 @@ import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 
 const Navbar = () => {
     const {user,logOut}=useAuth();
     const [cart]=useCart();
+    const [isAdmin]=useAdmin();
 
     const handleLogout=()=>{
         logOut()
@@ -26,7 +28,14 @@ const Navbar = () => {
         <li className="text-2xl"><NavLink to={'/'}>Home</NavLink></li>        
         <li className="text-2xl"><NavLink to={'/menu'}>Menu</NavLink></li>        
         <li className="text-2xl"><NavLink to={'/order/pizza'}>Order</NavLink></li> 
-        <li className="text-2xl"><NavLink to={'/signup'}>Sign Up</NavLink></li>               
+        <li className="text-2xl"><NavLink to={'/signup'}>Sign Up</NavLink></li>  
+
+        {
+            user && isAdmin && <li className="text-2xl"><NavLink to={'/dashboard/adminHome'}>Dash Board</NavLink></li>  
+        }             
+        {
+            user && !isAdmin && <li className="text-2xl"><NavLink to={'/dashboard/userHome'}>Dash Board</NavLink></li>  
+        }             
         
         <li className="text-2xl"><NavLink to={'/dashboard/cart'}>
                     <button className="btn">

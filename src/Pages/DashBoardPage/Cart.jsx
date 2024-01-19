@@ -29,7 +29,8 @@ const Cart = () => {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your Item has been deleted.",
-                                icon: "success"
+                                icon: "success",
+                                timer:'1000'
                               });
                         }
                     })
